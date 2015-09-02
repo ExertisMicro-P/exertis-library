@@ -20,7 +20,12 @@
 		</div>
 
 		<div class="breadcrumbs"></div>
-        <div id="zipinfo"><span></span><a href="#">Download</a></div>
+
+        <form id="zipinfo" action="zipup.php" method="post">
+            <input type="hidden" name="files" />
+            <input type="submit" value="Download Zip File" />
+        </form>
+
 
 		<ul class="data"></ul>
 

@@ -11,11 +11,12 @@
 function cleanseFileList()
 {
     $fileList = ['folders' => [], 'files' => [] ] ;
-    $files    = $_POST['files'] ;
+    $files    = json_decode($_POST['files'], true) ;
 
     $rootDir = dirname(__FILE__) . '/' ;
 
     foreach ($files as $fileInfo) {
+
         $fname = realpath($rootDir . $fileInfo['name']);
 
         if ($fname && substr($fname, 0, strlen($rootDir)) == $rootDir) {
@@ -96,11 +97,10 @@ function zipTheFiles($fileList) {
         foreach ($iterator as $file) {
             $baseName = $file->getBasename() ;
             if (substr($baseName, 0, 1) <> '.') {
-                $outname = substr($file, $rdLen);
-                $file    = (string)$file;
-            echo "\n$file";
-            echo "\n$outname";
-                $zip->addFile($file, $outname);
+                if (!is_dir($file)) {
+                    $outname = substr($file, $rdLen);
+                    $zip->addFile($file, $outname);
+                }
             }
         }
     }
@@ -120,19 +120,35 @@ $fileList = cleanseFileList() ;
 $fileList = removeDuplicates($fileList) ;
 
 if (count($fileList['folders']) || count($fileList['files'])) {
-    $output = zipTheFiles($fileList) ;
-    if ($output) {
+    $fullName = zipTheFiles($fileList) ;
+
+    if ($fullName) {
         $docRoot = $_SERVER['DOCUMENT_ROOT'] ;
 
-        $output = substr($output, strlen($docRoot)) ;
+        $output = substr($fullName, strlen($docRoot . '/tmp/')) ;
     }
 
 } else {
     $output = '' ;
 }
+$info =  "\n$fullName" ;
+$info .= ' ' . filesize($fullName) ;
 
 
 
+header("Pragma: public");
+header("Expires: 0");
+header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+header("Cache-Control: public");
+header("Content-Description: File Transfer");
+header("Content-type: application/octet-stream");
+header("Content-Disposition: attachment; filename=\"$output\"");
+header("Content-Transfer-Encoding: binary");
+header("Content-Length: " . filesize($fullName));
+
+readfile($fullName);
+
+exit ;
 
 header('Content-type: application/json');
 

@@ -195,6 +195,19 @@ $(function () {
 
         })
 
+        zipDiv.on('submit', function (event) {
+            zipItems = [] ;
+            gatherZipitems(response) ;
+            if (zipItems.length) {
+                zipDiv.find('input[type=hidden]').val(JSON.stringify(zipItems)) ;
+
+            } else {
+                return false;
+            }
+
+        })
+
+
         /**
          * GATHER ZIP ITEMS
          * ================
