@@ -208,6 +208,24 @@ $(function () {
         })
 
 
+        $('.f-jpg').parent().on('mouseover', function() {
+            image = $(this).attr('href');
+            $.modal('<div><img src="'+image+'" class="previewimage"></div>');
+        });
+        $('.f-png').parent().on('mouseover', function() {
+            image = $(this).attr('href');
+            $.modal('<div><img src="'+image+'" class="previewimage"></div>');
+        });
+
+        $('.f-jpg').parent().on('mouseout', function() {
+           $.modal.close();
+        });
+        $('.f-png').parent().on('mouseout', function() {
+           $.modal.close();
+        });
+
+
+
         /**
          * GATHER ZIP ITEMS
          * ================
