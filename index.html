@@ -13,10 +13,29 @@
 </head>
 <body>
         <div class="overlay"></div>
+        
+        <div class='login'>
 
+            <h1>Please provide a password.</h1>
 
-	<div class="filemanager">
-            <div id="header"></div>
+            <form id="form" method='post'>
+
+                <div class='form-field'>
+                    <input type='password' name='password' placeholder='Password' class='form-input' />
+                </div>
+                
+                <div class='form-field frontHelper'></div>
+                <div class='form-field frontLoading'></div>
+                
+                <div class='form-field margin-top-15'>
+                    <input type='button' value='Access Files' class='btn _accessBtn' />
+                </div>
+
+            </form>
+
+        </div>
+        
+	<!-- <div class="filemanager">
 
 		<div class="search">
 			<input type="search" placeholder="Find a file.." />
@@ -37,7 +56,7 @@
 			<span>No files here.</span>
 		</div>
 
-	</div>
+	</div> -->
 
 	<footer>
             <!--
@@ -50,6 +69,7 @@
 	<!-- Include our script files -->
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="assets/js/script.js"></script>
+	<script src="assets/js/formValidator.js"></script>
         <script src="assets/js/jquery.simplemodal.1.4.4.min.js"></script>
 
 </body>
