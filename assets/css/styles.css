@@ -16,8 +16,8 @@
 -------------------------*/
 
 body {
-	background-color: #23232e;
-	font: 14px normal Arial, Helvetica, sans-serif;
+	background-color: #fff;
+	font: 16px normal Calibri;
 	z-index: -4;
 }
 
@@ -46,9 +46,24 @@ body {
 	Breadcrumps
 -------------------------*/
 
+footer > a {
+    color: #fff;
+}
+
+footer > a:hover  {
+    color: #fff;
+}
+
+a {
+    color: #03689b;
+}
+
+a:hover {
+    color: #0090d8;
+}
 
 .filemanager .breadcrumbs {
-	color: #ffffff;
+	color: #000;
 	margin-left:20px;
 	font-size: 24px;
 	font-weight: 700;
@@ -56,7 +71,7 @@ body {
 }
 
 .filemanager .breadcrumbs a:link, .breadcrumbs a:visited {
-	color: #ffffff;
+	color: #000;
 	text-decoration: none;
 }
 
@@ -83,7 +98,7 @@ body {
 	cursor: pointer;
 	right: 0;
 	font-size: 17px;
-	color: #ffffff;
+	color: #000;
 	display: block;
 	width: 40px;
 	height: 40px;
@@ -96,7 +111,7 @@ body {
 	width: 10px;
 	height: 11px;
 	border-radius: 50%;
-	border: 2px solid #ffffff;
+	border: 2px solid #000;
 	right: 8px;
 }
 
@@ -104,7 +119,7 @@ body {
 	content: '';
 	width: 3px;
 	height: 10px;
-	background-color: #ffffff;
+	background-color: #000;
 	border-radius: 2px;
 	position: absolute;
 	top: 23px;
@@ -842,7 +857,7 @@ footer #tzine-actions iframe{
 }
 
 p {
-    color: #fff;
+    color: #000;
 }
 
 .login > p, .login > h1, .login > h2, .login > h3 {
@@ -947,7 +962,7 @@ table {
 .logo {
     text-align: center;
     max-width: 100%;
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
 tr > td{
@@ -1297,10 +1312,20 @@ ul > li > ul > li {
     font-weight: bold;
 }
 
+.content{
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 5%;
+}
 
 .link {
-    color: #fff;
+    float: right;
+    color: #000;
     cursor: pointer;
+}
+
+.link:hover {
+    text-decoration: underline;
 }
 
 
