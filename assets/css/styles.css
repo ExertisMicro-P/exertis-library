@@ -786,7 +786,7 @@ footer #tzine-actions iframe{
     padding: 2%;
     width: 25%;
     text-align: center;
-    margin-top: 10%;
+    margin-top: 2%;
     margin-left: auto;
     margin-right: auto;
     border-radius: 5px;
@@ -934,6 +934,20 @@ h1, h2, h3, h4, h5, h6 {
 table {
     margin-top: 20px;
     width: 100%;
+}
+
+.pdfpreview {
+    
+    width: 80% !important;
+    height: 500px !important;
+    left: 10% !important;
+    
+}
+
+.logo {
+    text-align: center;
+    max-width: 100%;
+    margin-top: 10%;
 }
 
 tr > td{
