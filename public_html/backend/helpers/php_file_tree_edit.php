@@ -1,5 +1,5 @@
 <?php
-require_once '../../classes/dbClass.php';
+require_once '/../classes/dbClass.php';
 
 /*
 	

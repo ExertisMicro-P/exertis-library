@@ -38,6 +38,7 @@ $url = 'http://'.$_SERVER['SERVER_NAME'];
         
         
         <div class="filemanager">
+        <img src="assets/img/exertis-logo.png" />
         <h1 class='link' onclick='window.location="logout.php"'>Logout</h1>
 
 		<div class="search">

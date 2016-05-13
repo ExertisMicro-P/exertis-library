@@ -1,5 +1,13 @@
 $(document).ready(function(){
    
+    $(window).keydown(function(event){
+        if(event.keyCode == 13) {
+            event.preventDefault();
+            loginAction();
+
+            return false;
+        }
+    });
     
     $('input[type="text"], input[type="password"]').on('blur', function(){
         
@@ -119,12 +127,14 @@ $(document).ready(function(){
            }
         });
     });
-    
-    
-    
-    
+        
     
     $('._accessBtn').on('click', function(){
+        loginAction();
+    });
+    
+    
+    function loginAction(){
         
         $(this).fadeOut();
         $('.frontHelper').fadeOut();
@@ -152,7 +162,8 @@ $(document).ready(function(){
             }, 1000);
            }
         });
-    });
+        
+    }
     
     
     

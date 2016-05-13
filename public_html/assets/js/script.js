@@ -206,24 +206,58 @@ $(function () {
             }
 
         })
+        
+        $('html').on('click', function(){
+       $.modal.close(); 
+    });
 
 
-        $('.f-jpg').parent().on('mouseover', function() {
-            image = $(this).attr('href');
-            $.modal('<div><img src="'+image+'" class="previewimage"></div>');
-        });
-        $('.f-png').parent().on('mouseover', function() {
-            image = $(this).attr('href');
-            $.modal('<div><img src="'+image+'" class="previewimage"></div>');
-        });
+    $(document).on('mouseover', 'a.files', function(){
 
-        $('.f-jpg').parent().on('mouseout', function() {
-           $.modal.close();
-        });
-        $('.f-png').parent().on('mouseout', function() {
-           $.modal.close();
-        });
+       var file = $(this).attr('title');
+       var fileExt = file.split('.')[1];
+       var previewExts = ['jpg', 'png', 'gif', 'pdf', 'doc', 'docx'];
 
+       if($.inArray(fileExt, previewExts) !== -1){
+           $(this).append('<span class="previewText">Click To Preview</span>');
+       }
+
+    });
+
+    $(document).on('mouseout', 'a.files', function(){
+
+        $('.previewText').html('');
+
+    });
+    
+    $(document).on('click', 'a.files', function(e) {
+        e.stopPropagation();
+        
+        image = $(this).attr('href');
+        fileExt = image.split('.')[1];
+        previewExts = ['jpg', 'png', 'gif', 'pdf', 'doc', 'docx'];
+        
+        if($.inArray(fileExt, previewExts) !== -1){
+        e.preventDefault();
+        
+            if(fileExt === 'jpg' || fileExt === 'png' || fileExt === 'gif') {
+                $.modal('<div><img src="'+image+'" class="previewimage"></div>');
+            }
+            
+            if(fileExt === 'pdf') {
+                $.modal('<div><iframe src="'+image+'" style="width:100%; height:500px; overflow: hidden; border:0px" scrolling="no"></div>');
+                $('.simplemodal-container').addClass('pdfpreview');
+            }
+            
+            if(fileExt == 'doc' || fileExt === 'docx') {
+                $.modal('<div><iframe src="https://view.officeapps.live.com/op/embed.aspx?src=http://library.exertis.co.uk/'+image+'" style="width:100%; height:500px; overflow: hidden; border:0px" scrolling="no"></div>');
+                $('.simplemodal-container').addClass('pdfpreview');
+            }
+            
+        }
+        
+    });
+        
 
 
         /**
@@ -506,7 +540,7 @@ $(function () {
                     // -------------------------------------------------------
                     // added a fancy checkbox to the top of the item
                     // -------------------------------------------------------
-                    var file = $('<li class="files"><a href="' + f.path + '" title="' + f.path + '" class="files">' + icon + '<span class="name">' + name + '</span> <span class="details">' + fileSize + '</span></a>' +
+                    var file = $('<li class="files"><a href="' + f.path + '" title="' + f.path + '" class="files">' + icon + '<span class="name">' + name + '</span> <span class="details">' + fileSize + '</span><span class="previewText"></span></a>' +
                         '<div class="switch demo3">' +
                         '<input type="checkbox"' + (f.checked ? ' checked' : '') + ' class="selectf">' +
                         '<label><i></i></label>' +
