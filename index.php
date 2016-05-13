@@ -1,4 +1,14 @@
 <?php include('header.php'); ?>
+
+<?php
+
+if(isset($_COOKIE['loggedIn']) && $_COOKIE['loggedIn'] == true){
+    
+    header('Location: files.php');
+    
+}
+
+?>
         
         <div class='login'>
 

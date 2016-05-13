@@ -1,5 +1,5 @@
     <footer>
-        <a href="tands.php">Terms & Conditions</a>
+        <a href="/">Terms & Conditions</a>
         &nbsp;
         <a href="cookie-policy.php">Cookie Policy</a>
     </footer>

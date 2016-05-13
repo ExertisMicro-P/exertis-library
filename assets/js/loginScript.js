@@ -20,8 +20,29 @@ $(document).ready(function(){
             $('.helper').fadeOut();
         }
     });
+    
+    $('input[name="username"]').bind('keypress', function(e) {
+	if(e.keyCode==13){
+		loginAction();
+	}
+    });
+    
+    $('input[name="password"]').bind('keypress', function(e) {
+	if(e.keyCode==13){
+		loginAction();
+	}
+    });
 
     $('._loginBtn').on('click', function(){
+        
+        loginAction();
+
+    });
+    
+    
+    
+    function loginAction(){
+        
         var userName = $('input[name="username"]').val();
         var password = $('input[name="password"]').val();
         
@@ -47,7 +68,6 @@ $(document).ready(function(){
             
         });
         
-
-    });
+    }
 
 });
