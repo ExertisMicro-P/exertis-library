@@ -57,7 +57,8 @@ $url = 'http://'.$_SERVER['SERVER_NAME'];
 
 		<div class="nothingfound">
 			<div class="nofiles"></div>
-			<span>No files here.</span>
+			<p>No files here.</p>
+                        <p><small>IE User? Press F5 to refresh</small></p>
 		</div>
 
 	</div> 
